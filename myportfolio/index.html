@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Poppins:wght@200&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title>Portfolio</title>
+</head>
+<body>
+    <body>  
+        <header>  
+          <div class="container">  
+            <nav class="flex items-centre king justify-between">  
+                <div class="left flex justfiy-right">    
+                <div class="jod ">  
+                  <a href="#" class="jod-btn">Home</a>  
+                  <a href="#About" class="jod-btn">About</a>  
+                  <a href="#Myprojects" class="jod-btn">Projects</a>   
+                  <a href="#Contact" class="jod-btn">Contact</a>  
+                </div>  
+              </div>  
+              <div class="right">  
+                <button class="btn btn-primary" ><a href="#Contact" class="gg">Contact</a></button>  
+              </div>  
+            </nav>
+          </div>  
+        </header>
+        <div class="hero flex items-centre justify-between">
+            <div class="left flex-1 justify-center">
+                <img src="./img/4131_ArbaazMujawar.jpg" alt="Profile" class="myphoto">
+            </div>
+            <div class="right flex-1">
+                <h6>Arbaaz Mujawar</h6>
+                <h1>I'm a Frontend<br> <span>Developer</span></h1>
+                <p class="my-details">I am an aspiring Computer Engineer who offers a solid 
+                    foundation in computer science fundamentals and  
+                    skilled in frontend development, specializing in 
+                    creating user-friendly web interfaces.</p>
+            <div>
+            <button class="btn btn-secondary"><a href="img/Arbaaz_Resume.pdf" class="gg">DOWNLOAD CV</a></button>
+            </div>
+        </div>
+    </div>
+            <section class="about" id="About">
+                <div class="container items-centre">
+                    <div class="left flex-1 justify-right">
+                        <img class="myphoto-2" src="img/PXL_20240203_064024542.jpg" height="400px" alt="profile pic">
+                        <img class="myphoto-2" src="img/3.JPG" height="400px" alt="my photo">
+                        <img class="myphoto-2" src="img/1.JPG" height="400px" alt="my photo">
+                    </div>
+                    <div class="right flex-1">
+                        <h1 class="about">About <span>Me</span></h1>
+                        <h3>Hello! I'm ARBAAZ MUJAWAR.</h3>
+                    </div>
+                    <div class="myinfo"> 
+                        <p>
+                            I am an aspiring Computer Engineer who offers a solid 
+                    foundation in computer science fundamentals and  
+                    skilled in frontend development, specializing in 
+                    creating user-friendly web interfaces.
+                        </p>
+                    </div>
+                    <div class="tech">
+                        <h3 class="tech-skills">Technical Skills</h3>
+                        <ul class="grid">
+                            <li class="mylist">Python</li>
+                            <li class="mylist">Html</li>
+                            <li class="mylist">Css</li>
+                            <li class="mylist">SQL</li>
+                            <li class="mylist">Javascript</li>
+                        </ul>
+                      </div>
+                        <div class="socials">
+                            <a href="https://www.instagram.com/i_am_aim__?igsh=MTE5MTV0dDF0cWlzaQ%3D%3D&utm_source=qr"><img src="img/ABOUT/in.jpeg" width="40px"></a>
+                            <a href="https://www.linkedin.com/in/arbaaz-mujawar-370809269?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><img src="img/ABOUT/linkdin.png" width="40px"></a>
+                            <a href="https://www.facebook.com/arbaaz.mujawar.7?mibextid=LQQJ4d"><img src="img/ABOUT/FACEBOOK.jpeg" width="40px"></a>
+                            
+                        </div>
+                    
+                </div>
+            </section>
+
+            <section class="services" id="Myprojects">
+                <div class="container">
+                    <h1 class="services-head">Projects</h1>
+                    <p>All your digital needs... covered.</p>
+                    <div class="card-grid">
+
+                    <div class="card">
+                        <img src="img/ABOUT/project.png">
+                        <h2>Food Subscription Service</h2>
+                        <p>Developed a responsive website for OmniFood, an 
+                            online food subscription service</p>
+                        <a href="https://arbaazmujawar.netlify.app/">PROJECT</a>
+                    </div>
+                    <div class="card">
+                        <img src="img/ABOUT/project (1).png">
+                        <h2>Portfolio</h2>
+                        <p>Designed and developed a personal portfolio website to showcase projects, skills, and educational background</p>
+                        <a href="#">PROJECT</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="Contact">
+            <h1 class="services-head">Contact Me </h1>
+        <form class="cta-form form" method="POST" name="sign-up" data-netlify="true" netlify>
+            <div>
+              <label for="full-name">Full Name</label>
+              <input
+                id="full-name"
+                type="text"
+                placeholder="Your Name"
+                name="Full-name"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="email">Email address</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="me@example.com"
+                name="Email"
+                required
+              />
+            </div>
+
+            <button id="sub" class="btn btn-secondary Submit">Submit</button>
+
+            <!-- <input type="checkbox" />
+            <input type="number" /> -->
+          </form>
+            
+        </section>
+
+    <script src="index.js"></script>
+</body>
+</html
