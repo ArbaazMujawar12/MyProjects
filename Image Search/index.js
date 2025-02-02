@@ -1,4 +1,4 @@
-const accessKey = "RZEIOVfPhS7vMLkFdd2TSKGFBS4o9_FmcV1Nje3FSjw";
+const accessKey = "AfwoMP1jrURfWWY48PfNbQNYX0d5VqKqWmrZ10ti8UdiHOELl9ojjIHD"; // Replace with your Pexels API Key
 
 const formEl = document.querySelector("form");
 const searchInputEl = document.getElementById("search-input");
@@ -11,36 +11,49 @@ let page = 1;
 
 async function searchImages() {
   inputData = searchInputEl.value;
-  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`;
+  const url = `https://api.pexels.com/v1/search?query=${inputData}&per_page=12&page=${page}`;
 
-  const response = await fetch(url);
-  const data = await response.json();
-  if (page === 1) {
-    searchResultsEl.innerHTML = "";
-  }
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: accessKey,
+      },
+    });
+    const data = await response.json();
 
-  const results = data.results;
+    if (page === 1) {
+      searchResultsEl.innerHTML = "";
+    }
 
-  results.map((result) => {
-    const imageWrapper = document.createElement("div");
-    imageWrapper.classList.add("search-result");
-    const image = document.createElement("img");
-    image.src = result.urls.small;
-    image.alt = result.alt_description;
-    const imageLink = document.createElement("a");
-    imageLink.href = result.links.html;
-    imageLink.target = "_blank";
-    imageLink.textContent = result.alt_description;
+    if (!data.photos || data.photos.length === 0) {
+      console.error("No images found.");
+      return;
+    }
 
-    imageWrapper.appendChild(image);
-    imageWrapper.appendChild(imageLink);
-    searchResultsEl.appendChild(imageWrapper);
-  });
+    data.photos.forEach((photo) => {
+      const imageWrapper = document.createElement("div");
+      imageWrapper.classList.add("search-result");
 
-  page++;
+      const image = document.createElement("img");
+      image.src = photo.src.medium;
+      image.alt = photo.alt;
 
-  if (page > 1) {
-    showMoreButtonEl.style.display = "block";
+      const imageLink = document.createElement("a");
+      imageLink.href = photo.url;
+      imageLink.target = "_blank";
+      imageLink.textContent = photo.alt;
+
+      imageWrapper.appendChild(image);
+      imageWrapper.appendChild(imageLink);
+      searchResultsEl.appendChild(imageWrapper);
+    });
+
+    page++;
+    if (page > 1) {
+      showMoreButtonEl.style.display = "block";
+    }
+  } catch (error) {
+    console.error("Error fetching images:", error);
   }
 }
 
@@ -56,8 +69,8 @@ showMoreButtonEl.addEventListener("click", () => {
 
 categoryEls.forEach((categoryEl) => {
   categoryEl.addEventListener("click", () => {
-    inputData = categoryEl.dataset.query; // Get the category from the data-query attribute
-    searchInputEl.value = inputData; // Optional: Display the selected category in the input field
+    inputData = categoryEl.dataset.query;
+    searchInputEl.value = inputData;
     page = 1;
     searchImages();
   });
